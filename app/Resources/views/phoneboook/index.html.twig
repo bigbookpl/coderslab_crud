@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Phoneboooks list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Street</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for phoneboook in phoneboooks %}
+            <tr>
+                <td><a href="{{ path('phoneboook_show', { 'id': phoneboook.id }) }}">{{ phoneboook.id }}</a></td>
+                <td>{{ phoneboook.firstName }}</td>
+                <td>{{ phoneboook.lastName }}</td>
+                <td>{{ phoneboook.phone }}</td>
+                <td>{{ phoneboook.email }}</td>
+                <td>{{ phoneboook.street }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('phoneboook_show', { 'id': phoneboook.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('phoneboook_edit', { 'id': phoneboook.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('phoneboook_new') }}">Create a new phoneboook</a>
+        </li>
+    </ul>
+{% endblock %}

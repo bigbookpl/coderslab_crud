@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Phoneboook</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ phoneboook.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ phoneboook.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ phoneboook.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ phoneboook.phone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ phoneboook.email }}</td>
+            </tr>
+            <tr>
+                <th>Street</th>
+                <td>{{ phoneboook.street }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('phoneboook_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('phoneboook_edit', { 'id': phoneboook.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
